@@ -1,38 +1,41 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&display=swap');
+
+:root {
+  --espresso: #3d3532;
+  --paper: #fcfaf7;
+  --font-thin: 'Playfair Display', serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background-color: var(--paper); color: var(--espresso); font-family: var(--font-thin); }
+
+/* Splash Screen - Clean Fade */
+.splash-screen {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: var(--paper); display: flex; justify-content: center; align-items: center;
+  z-index: 1000; transition: opacity 1s ease-in-out; opacity: 1;
+}
+.splash-screen.fade-out { opacity: 0; pointer-events: none; }
+
+.brand-logo { 
+  font-size: 5rem; 
+  font-weight: 300; /* THIN AESTHETIC */
+  color: var(--espresso); 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+/* Layout */
+.app-container { width: 90%; max-width: 1000px; margin: 0 auto; padding-top: 40px; }
+.top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 60px; }
+.brand-name { font-size: 1.5rem; font-weight: 300; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+.nav-tabs { display: flex; gap: 30px; font-size: 0.9rem; color: #5c534e; }
+.nav-tabs .active { border-bottom: 1px solid var(--espresso); }
 
-.App-link {
-  color: #61dafb;
-}
+.dash-header h1 { font-weight: 300; font-size: 3rem; margin-bottom: 15px; }
+.dash-header p { font-weight: 300; font-size: 0.9rem; color: #5c534e; margin-bottom: 50px; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: #f5f0ec; padding: 30px; border-radius: 20px; border: 1px solid #e8e3df; }
+.card h4 { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: #a39b95; margin-bottom: 15px; }
+.card h3 { font-weight: 300; font-size: 1.5rem; }
